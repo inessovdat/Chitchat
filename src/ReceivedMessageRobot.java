@@ -54,11 +54,21 @@ public class ReceivedMessageRobot extends TimerTask {
 			if (!received.isEmpty()){
 				for (ReceivedMessage msg  :  received){
 					String sender = msg.getSender();
-					String text = msg.getMessage();		
-					chat.output.append(sender + ":" +  text  + "\n");
-					System.out.println("Prejeli ste novo sporoèilo.");
+					String text = msg.getMessage();
+					Boolean global = msg.getGlobal();
+					if (global){
+						chat.output.append(sender + " : " +  text  + "\n");
+						System.out.println("Prejeli ste novo sporoèilo.");
+					}
+					else{
+						chat.output.append(sender + " (zasebno sporoèilo): " +  text  + "\n");
+						System.out.println("Prejeli ste novo zasebno sporoèilo.");
+					}
+					}
+					//chat.output.append(sender + ":" +  text  + "\n");
+					//System.out.println("Prejeli ste novo sporoèilo.");
 				}
-			}
+			
 			else {System.out.println("Prejeli niste nobenih novih sporoèil.");
 
 			}

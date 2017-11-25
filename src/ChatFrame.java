@@ -274,7 +274,7 @@ public class ChatFrame extends JFrame implements ActionListener, KeyListener {
 				// Zasebno sporoèilo
 				else{ 
 					try {App.sendPrivateMessage(textField.getText(), global, privateMsg.getText(), input.getText());
-						this.addMessage("(zasebno sporoèilo) " + textField.getText(), this.input.getText());
+						this.addMessage(textField.getText() + " (zasebno sporoèilo osebi " +  privateMsg.getText() + ")", this.input.getText());
 						this.input.setText(null);	// Okvirèek za vpisovanje besedila se spet nastavi na prazno
 					
 					} catch (URISyntaxException | IOException e1) {
